@@ -1,0 +1,130 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Boot strap -->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .content{
+            height: 75%;
+        }
+        .messageDiv{
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        .custom-btn{
+            font-size: 10px;
+        }
+        .panel-footer{
+            height:10%;
+            color:gray;
+        }
+    </style>
+
+    <title>DB과제</title>
+</head>
+<body>
+    <h1>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DB과제 <small>made by dw</small>
+    </h1>
+    <div class="container">
+        <div class="mainDiv">
+            <h3>고객</h3><br>
+            <form action="./search" method="POST">{% csrf_token %}
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">name</span>
+                    <input type="text" name='indicator1' class="form-control" placeholder="name을 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">phone</span>
+                    <input type="text" name='indicator' class="form-control" placeholder="phone number를 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">address</span>
+                    <input type="text" name='indicator_max1' class="form-control" placeholder="address를 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">gender</span>
+                    <input type="text" name='indicator_max1' class="form-control" placeholder="gender 값을 적어주세요." aria-describedby="basic-addon1">
+                </div>
+
+                <input type="submit" class="btn btn-success btn-lg" value="검색">
+            </form>
+            <form action="./search" method="POST">{% csrf_token %}
+                <h3>거래</h3><br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">transectionNumber</span>
+                    <input type="text" name='indicator2' class="form-control" placeholder="transectionNumber를 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">productID</span>
+                    <input type="text" name='indicator_min2' class="form-control" placeholder="productID를 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">price</span>
+                    <input type="text" name='indicator_max2' class="form-control" placeholder="price를 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">date</span>
+                    <input type="text" name='indicator_max2' class="form-control" placeholder="date를 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">customerName</span>
+                    <input type="text" name='indicator_max2' class="form-control" placeholder="customerName을 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <input type="submit" class="btn btn-success btn-lg" value="검색">
+            </form>
+            <form action="./search" method="POST">{% csrf_token %}
+                <h3>상품</h3><br>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">name</span>
+                    <input type="text" name='indicator3' class="form-control" placeholder="상품 name을 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">productID</span>
+                    <input type="text" name='indicator_min3' class="form-control" placeholder="상품 productID를 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">supplierName</span>
+                    <input type="text" name='indicator_max3' class="form-control" placeholder="상품 supplierName를 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <input type="submit" class="btn btn-success btn-lg" value="검색">
+            </form>
+
+            <form action="./search" method="POST">{% csrf_token %}
+                <h3>특수 검색 A</h3><br>
+                <h4>남자보다 여자가 많이 산 상품의 이름</h4>
+                <input type="submit" class="btn btn-success btn-lg" value="검색">
+            </form>
+            <form action="./search" method="POST">{% csrf_token %}
+                <h3>특수 검색 B</h3><br>
+                <h4>주어진 날 이전에 가장 많은 거래(금액기준)가 이루어진 k 가지 상품</h4>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">name</span>
+                    <input type="text" name='indicator3' class="form-control" placeholder="상품 name을 적어주세요." aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">상품 k가지 수</span>
+                    <input type="text" name='indicator_min3' class="form-control" placeholder="k값을 적어주세요" aria-describedby="basic-addon1">
+                </div>
+                <input type="submit" class="btn btn-success btn-lg" value="검색">
+            </form>
+            <form action="./search" method="POST">{% csrf_token %}
+                <h3>특수 검색 C</h3><br>
+                <h4>하나의 supplier에서 m 번 이상의 제품을 산 고객의 이름</h4>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">m 번 이상 산 제품 수</span>
+                    <input type="text" name='indicator_min3' class="form-control" placeholder="m값을 적어주세요" aria-describedby="basic-addon1">
+                </div>
+                <input type="submit" class="btn btn-success btn-lg" value="검색">
+            </form>
+        </div>        
+    </div>
+</body>
+</html>
